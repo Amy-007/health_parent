@@ -1,0 +1,2 @@
+127.0.0.1 - - [26/Dec/2020:14:49:45 +0800] "GET /pages/checkgroup.html HTTP/1.1" 404 993 http-bio-81-exec-1 22
+127.0.0.1 - - [26/Dec/2020:14:49:45 +0800] "GET /favicon.ico HTTP/1.1" 404 973 http-bio-81-exec-2 1
