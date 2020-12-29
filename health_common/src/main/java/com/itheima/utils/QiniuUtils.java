@@ -15,6 +15,10 @@ import java.io.InputStream;
 
 /**
  * 七牛云工具类
+ * 机房 Zone对象
+ * 华东   Zone.zone0()
+ * 华北   Zone.zone1()
+ * 华南   Zone.zone2()
  */
 public class QiniuUtils {
     public  static String accessKey = "ZRVpYoXvJqWZchhkFpmu-u5lLhQNLWUy7asktCQR";
@@ -22,8 +26,8 @@ public class QiniuUtils {
     public  static String bucket = "project-testing";
 
     public static void upload2Qiniu(String filePath,String fileName){
-        //构造一个带指定Zone对象的配置类   zone0()是区域 需改
-        Configuration cfg = new Configuration(Zone.zone0());
+        //构造一个带指定Zone对象的配置类
+        Configuration cfg = new Configuration(Zone.zone2());
         UploadManager uploadManager = new UploadManager(cfg);
         Auth auth = Auth.create(accessKey, secretKey);
         String upToken = auth.uploadToken(bucket);
@@ -44,7 +48,7 @@ public class QiniuUtils {
     //上传文件
     public static void upload2Qiniu(byte[] bytes, String fileName){
         //构造一个带指定Zone对象的配置类
-        Configuration cfg = new Configuration(Zone.zone0());
+        Configuration cfg = new Configuration(Zone.zone2());
         //...其他参数参考类注释
         UploadManager uploadManager = new UploadManager(cfg);
 
@@ -72,7 +76,7 @@ public class QiniuUtils {
     //删除文件
     public static void deleteFileFromQiniu(String fileName){
         //构造一个带指定Zone对象的配置类
-        Configuration cfg = new Configuration(Zone.zone0());
+        Configuration cfg = new Configuration(Zone.zone2());
         String key = fileName;
         Auth auth = Auth.create(accessKey, secretKey);
         BucketManager bucketManager = new BucketManager(auth, cfg);
