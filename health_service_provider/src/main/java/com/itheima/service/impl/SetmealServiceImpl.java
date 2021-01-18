@@ -45,7 +45,6 @@ public class SetmealServiceImpl implements SetmealService{
         }
         //将图片名称保存到Redis
         savePic2Redis(setmeal.getImg());
-
     }
 
     //将图片名称保存到Redis
