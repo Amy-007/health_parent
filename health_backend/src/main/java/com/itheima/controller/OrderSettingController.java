@@ -50,14 +50,20 @@ public class OrderSettingController {
         }
     }
 
-    //根据月份查询对应的预约设置数据
+    /**
+     * 根据日期查询预约设置数据(获取指定日期所在月份的预约设置数据)
+     * @param date
+     * @return
+     */
     @RequestMapping("/getOrderSettingByMonth")
     public Result getOrderSettingByMonth(String date){//date格式为：yyyy-MM
         try{
             List<Map> list = orderSettingService.getOrderSettingByMonth(date);
+            //获取预约设置数据成功
             return new Result(true,MessageConstant.GET_ORDERSETTING_SUCCESS,list);
         }catch (Exception e){
             e.printStackTrace();
+            //获取预约设置数据失败
             return new Result(false,MessageConstant.GET_ORDERSETTING_FAIL);
         }
     }
