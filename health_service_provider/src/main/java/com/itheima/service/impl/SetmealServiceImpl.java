@@ -53,7 +53,7 @@ public class SetmealServiceImpl implements SetmealService{
         jedisPool.getResource().sadd(RedisConstant.SETMEAL_PIC_DB_RESOURCES,pic);
     }
 
-    //绑定套餐和检查组的多对多关系
+    //绑定套餐和检查组的多对多关系，操作t_setmeal_checkgroup
     private void setSetmealAndCheckGroup(Integer id,Integer[]checkgroupIds){
         for(Integer checkgroupId:checkgroupIds){
             Map<String,Integer> map=new HashMap<>();
@@ -78,9 +78,14 @@ public class SetmealServiceImpl implements SetmealService{
         return setmealDao.findAll();
     }
 
-    @Override
+    //根据套餐ID查询套餐详情（套餐基本信息、套餐对应的检查组信息、检查组对应的检查项信息）
     public Setmeal findById(int id) {
         return setmealDao.findById(id);
+    }
+
+    //查询套餐预约占比数据
+    public List<Map<String, Object>> findSetmealCount() {
+        return setmealDao.findSetmealCount();
     }
 
     /*

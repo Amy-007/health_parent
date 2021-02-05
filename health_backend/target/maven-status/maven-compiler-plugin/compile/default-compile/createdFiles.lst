@@ -1,3 +1,6 @@
 com\itheima\controller\CheckItemController.class
 com\itheima\controller\SetmealController.class
+com\itheima\controller\UserController.class
+com\itheima\controller\ReportController.class
+com\itheima\Service\SpringSecurityUserService.class
 com\itheima\controller\CheckGroupController.class
